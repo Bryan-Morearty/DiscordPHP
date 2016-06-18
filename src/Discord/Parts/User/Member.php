@@ -310,6 +310,7 @@ class Member extends Part
     {
         return [
             'roles' => $this->attributes['roles'],
+            'nick' => $this->nick,
         ];
     }
 
