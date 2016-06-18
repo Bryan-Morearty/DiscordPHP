@@ -83,6 +83,20 @@ class Member extends Part
     }
 
     /**
+     * Sets the nickname of yourself.
+     *
+     * @param string $nick The nickname to set.
+     *
+     * @return void 
+     */
+    public function setSelfNickname($nick)
+    {
+        Guzzle::patch($this->replaceWithVariables('guilds/:guild_id/members/@me/nick'), [
+            'nick' => $nick,
+        ]);
+    }
+
+    /**
      * Bans the member.
      *
      * @param int $daysToDeleteMessasges The amount of days to delete messages from.
@@ -310,7 +324,6 @@ class Member extends Part
     {
         return [
             'roles' => $this->attributes['roles'],
-            'nick' => $this->nick,
         ];
     }
 
